@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>নন্দলালপুর বায়তুল ইলম ইসলামিক পাঠাগার</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Hind Siliguri',sans-serif;background:#f5fbf7;color:#1a2e1e;max-width:480px;margin:0 auto;min-height:100vh;box-shadow:0 0 40px rgba(0,0,0,.15)}
+button{font-family:'Hind Siliguri',sans-serif;cursor:pointer}
+input,textarea{font-family:'Hind Siliguri',sans-serif}
+::-webkit-scrollbar{display:none}
+
+.header{background:linear-gradient(135deg,#0f4a27,#1a6b3a,#2d8f52);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(15,74,39,.3)}
+.topbar{background:rgba(0,0,0,.2);padding:4px 12px;display:flex;align-items:center;justify-content:space-between;font-size:10px}
+.arabic{font-size:13px;color:#c8a84b;font-family:serif;text-align:center;flex:1}
+.stars{color:#c8a84b;letter-spacing:4px}
+.header-main{padding:8px 12px 5px;display:flex;align-items:center;gap:10px}
+.logo{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.lib-name-sm{font-size:10px;color:rgba(255,255,255,.65);margin-bottom:1px}
+.lib-name{font-size:13px;font-weight:700;color:#fff;line-height:1.3}
+.tagline{font-size:10px;color:rgba(255,255,255,.8);font-style:italic;margin-top:1px}
+.topnav{display:flex;overflow-x:auto;background:rgba(0,0,0,.15);padding:2px 0;scrollbar-width:none}
+.topnav button{flex:0 0 auto;padding:5px 10px;background:none;border:none;border-bottom:2px solid transparent;color:rgba(255,255,255,.7);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;white-space:nowrap}
+.topnav button.active{color:#fff;font-weight:700;border-bottom:2px solid #c8a84b;background:rgba(255,255,255,.08)}
+.topnav button .ni{font-size:14px}
+.topnav button .nl{font-size:9px}
+.page{min-height:calc(100vh - 200px);padding-bottom:20px}
+.hero{background:linear-gradient(160deg,#0f4a27,#1a6b3a);padding:28px 20px 22px;text-align:center;position:relative;overflow:hidden}
+.hero-pat{position:absolute;top:0;left:0;right:0;bottom:0;opacity:.05;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%);background-size:20px 20px}
+.hero h1{font-size:18px;font-weight:800;color:#fff;line-height:1.3;margin-bottom:6px;position:relative}
+.hero-sub{font-size:12px;color:rgba(255,255,255,.8);position:relative}
+.hero-btns{display:flex;gap:8px;justify-content:center;margin-top:16px;flex-wrap:wrap;position:relative}
+.hb{background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.4);color:#fff;padding:9px 14px;border-radius:10px;font-size:12px;font-weight:600}
+.hbg{background:#c8a84b;border:1.5px solid #c8a84b;color:#1a2e1e;padding:9px 14px;border-radius:10px;font-size:12px;font-weight:700}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 14px 14px}
+.card{background:#fff;border-radius:14px;padding:16px 10px;text-align:center;box-shadow:0 2px 10px rgba(26,107,58,.10);border:1.5px solid #c3e6cb;cursor:pointer}
+.card:active{transform:scale(.97);background:#f0faf4}
+.card-icon{font-size:26px;margin-bottom:6px;display:block}
+.card-label{font-size:12px;font-weight:600;color:#0f4a27;line-height:1.3}
+.sec-title{font-size:17px;font-weight:700;color:#0f4a27;text-align:center;padding:18px 16px 8px;border-bottom:2px solid #c3e6cb;margin:0 14px 14px}
+.sec-box{background:#fff;margin:0 14px 14px;border-radius:14px;padding:16px;box-shadow:0 2px 10px rgba(26,107,58,.08);border:1.5px solid #c3e6cb}
+.sec-text{font-size:13px;line-height:1.8;color:#4a6b54;margin-bottom:10px}
+.quote{background:#f0faf4;border:1.5px solid #c3e6cb;border-left:4px solid #1a6b3a;border-radius:8px;padding:11px 13px;font-size:13px;font-style:italic;color:#0f4a27;font-weight:600;text-align:center;margin:8px 0 0}
+.divider{text-align:center;color:#1a6b3a;font-size:16px;margin:8px 0;letter-spacing:6px}
+.goal-item{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid #c3e6cb;font-size:13px;color:#4a6b54;line-height:1.6}
+.gnum{background:#1a6b3a;color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+
+/* COMMITTEE */
+.comm-title{font-size:13px;font-weight:700;color:#1a6b3a;padding:10px 0 6px;border-bottom:1px dashed #c3e6cb;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between}
+.ctag{background:#e8f5e9;color:#1a6b3a;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:600;margin-left:6px;border:1px solid #c3e6cb}
+.add-btn{background:#1a6b3a;color:#fff;border:none;border-radius:7px;padding:4px 10px;font-size:11px}
+.mc{display:flex;align-items:center;justify-content:space-between;padding:9px 11px;background:#f0faf4;border-radius:10px;margin-bottom:7px;border:1px solid #c3e6cb}
+.mn{font-size:13px;font-weight:600;color:#1a2e1e}
+.mr{font-size:11px;color:#4a6b54;margin-top:2px}
+.eb{background:#1a6b3a;color:#fff;border:none;border-radius:6px;padding:4px 8px;font-size:11px}
+.db{background:#e74c3c;color:#fff;border:none;border-radius:6px;padding:4px 7px;font-size:11px;margin-left:5px}
+.ei{padding:5px 8px;border-radius:6px;border:1.5px solid #c3e6cb;font-size:12px;width:140px;font-family:'Hind Siliguri',sans-serif;background:#fff}
+.cb{background:#1a6b3a;color:#fff;border:none;border-radius:6px;padding:5px 9px;font-size:12px}
+.xb{background:#e74c3c;color:#fff;border:none;border-radius:6px;padding:5px 9px;font-size:12px}
+
+/* DONOR BOX */
+.donor-box{background:linear-gradient(135deg,#f0faf4,#e8f5e9);border:2px solid #1a6b3a;border-radius:12px;padding:14px;margin-bottom:14px}
+.donor-rule{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid #c3e6cb;font-size:13px;line-height:1.6}
+.donor-ben{background:#fff3cd;border:1.5px solid #c8a84b;border-radius:8px;padding:10px 12px;margin-top:10px;font-size:12px;color:#7d5a00;line-height:1.6}
+
+/* BOOKS */
+.book-cat{display:flex;align-items:center;gap:12px;padding:13px 14px;background:#fff;border-radius:12px;margin-bottom:9px;border:1.5px solid #c3e6cb;box-shadow:0 1px 6px rgba(26,107,58,.07);cursor:pointer}
+.book-cat:active{background:#f0faf4}
+.bclabel{font-size:13px;font-weight:600;color:#0f4a27;flex:1}
+.bcount{background:#1a6b3a;color:#fff;border-radius:20px;padding:2px 10px;font-size:11px;font-weight:700}
+
+/* BOOK LIST PAGE */
+.book-item{display:flex;align-items:center;justify-content:space-between;padding:11px 13px;background:#fff;border-radius:11px;margin-bottom:8px;border:1.5px solid #c3e6cb}
+.book-name{font-size:13px;font-weight:600;color:#1a2e1e;flex:1;margin:0 8px}
+.book-num{background:#e8f5e9;color:#1a6b3a;border-radius:6px;padding:2px 8px;font-size:11px;font-weight:700;border:1px solid #c3e6cb;white-space:nowrap}
+
+/* GALLERY */
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.g-album{background:#fff;border-radius:12px;padding:12px;border:1.5px solid #c3e6cb;cursor:pointer;position:relative}
+.g-thumb{width:100%;height:90px;border-radius:8px;background:linear-gradient(135deg,rgba(26,107,58,.15),rgba(45,143,82,.1));display:flex;align-items:center;justify-content:center;font-size:32px;border:1px solid #c3e6cb;margin-bottom:8px;overflow:hidden}
+.g-thumb img{width:100%;height:100%;object-fit:cover;border-radius:8px}
+.g-title{font-size:12px;font-weight:600;color:#0f4a27;text-align:center}
+.g-count{font-size:11px;color:#4a6b54;text-align:center;margin-top:2px}
+.g-del{position:absolute;top:6px;right:6px;background:#e74c3c;color:#fff;border:none;border-radius:5px;padding:2px 6px;font-size:10px}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.photo-item{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:1}
+.photo-item img{width:100%;height:100%;object-fit:cover}
+.photo-del{position:absolute;top:3px;right:3px;background:rgba(231,76,60,.85);color:#fff;border:none;border-radius:4px;padding:1px 5px;font-size:10px}
+.add-photo{aspect-ratio:1;border-radius:8px;border:2px dashed #c3e6cb;background:#f0faf4;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;font-size:11px;color:#1a6b3a;gap:4px}
+.add-photo span:first-child{font-size:24px}
+
+/* FAQ */
+.faq-item{background:#fff;border-radius:12px;margin-bottom:9px;border:1.5px solid #c3e6cb;overflow:hidden}
+.faq-q{padding:13px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:#0f4a27;user-select:none}
+.faq-a{padding:10px 14px 13px;font-size:12px;color:#4a6b54;line-height:1.7;border-top:1px solid #c3e6cb;display:none}
+.faq-a.open{display:block}
+
+/* FORM */
+.fg{margin-bottom:13px}
+.fl{display:block;font-size:12px;font-weight:600;color:#0f4a27;margin-bottom:5px}
+input.fi,textarea.fi{width:100%;padding:9px 11px;border-radius:9px;border:1.5px solid #c3e6cb;font-size:13px;color:#1a2e1e;background:#f0faf4;outline:none}
+textarea.fi{min-height:85px;resize:vertical}
+.sbtn{background:linear-gradient(135deg,#1a6b3a,#2d8f52);color:#fff;border:none;border-radius:10px;padding:11px 24px;font-size:13px;font-weight:700;width:100%;margin-top:4px;box-shadow:0 3px 10px rgba(26,107,58,.3)}
+.rl{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:9px;border:1.5px solid #c3e6cb;cursor:pointer;font-size:13px;background:#f0faf4;margin-bottom:7px}
+
+/* CONTACT */
+.cr{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #c3e6cb}
+.ci{width:36px;height:36px;border-radius:9px;background:#f0faf4;border:1.5px solid #c3e6cb;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+
+/* NOTICE */
+.nc{background:#fff;border-radius:12px;padding:13px;margin-bottom:9px;border:1.5px solid #c3e6cb;border-left:4px solid #1a6b3a}
+.badge{background:#f0faf4;border:1.5px solid #c3e6cb;border-radius:8px;padding:11px 13px;font-size:13px;color:#0f4a27;line-height:1.7;margin-bottom:9px;display:flex;align-items:flex-start;gap:10px}
+.bnum{background:#1a6b3a;color:#fff;min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.mr{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid #c3e6cb;font-size:13px;color:#4a6b54;line-height:1.6}
+.const-box{background:#fff;border-radius:12px;padding:14px;margin:0 14px 14px;border:1.5px solid #c3e6cb}
+.const-t{font-size:14px;font-weight:700;color:#0f4a27;margin-bottom:8px;border-bottom:1.5px solid #c3e6cb;padding-bottom:7px}
+.const-b{font-size:12px;color:#4a6b54;line-height:1.9}
+.succ{text-align:center;padding:22px 0}
+
+/* FOOTER */
+footer{background:linear-gradient(135deg,#0f4a27,#1a6b3a);padding:16px 14px 10px;text-align:center}
+.fq{font-size:13px;font-style:italic;margin-bottom:8px;color:#c8a84b}
+.fl2{display:flex;justify-content:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;font-size:11px;color:rgba(255,255,255,.8)}
+.fc{font-size:10px;color:rgba(255,255,255,.5);margin-top:5px}
+
+/* BOTTOM NAV */
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="topbar">
+    <span class="stars">✦ ✦ ✦</span>
+    <span class="arabic">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</span>
+    <span class="stars">✦ ✦ ✦</span>
+  </div>
+  <div class="header-main">
+    <div class="logo">🌿</div>
+    <div>
+
+      <div class="lib-name">নন্দলালপুর বায়তুল ইলম ইসলামিক পাঠাগার</div>
+      <div class="tagline">"এসো বই পড়ি, নিজেকে আলোকিত করি" 📚</div>
+    </div>
+  </div>
+  <div class="topnav" id="topnav"></div>
+</div>
+
+<div id="app"></div>
+
+
+<script>
+const NAV=[
+  {id:'home',label:'হোম',icon:'🏠'},
+  {id:'about',label:'আমাদের সম্পর্কে',icon:'📚'},
+  {id:'goals',label:'লক্ষ্য ও উদ্দেশ্য',icon:'🎯'},
+  {id:'constitution',label:'সংবিধান',icon:'📜'},
+  {id:'committee',label:'কমিটি',icon:'👥'},
+  {id:'books',label:'বইয়ের তালিকা',icon:'📖'},
+  {id:'gallery',label:'গ্যালারি',icon:'📸'},
+  {id:'faq',label:'প্রশ্নোত্তর',icon:'❓'},
+  {id:'membership',label:'সদস্য হন',icon:'📝'},
+  {id:'cancel',label:'সদস্যপদ বাতিল',icon:'🚫'},
+  {id:'feedback',label:'মতামত',icon:'🌟'},
+  {id:'support',label:'সহযোগিতা',icon:'🤝'},
+  {id:'contact',label:'যোগাযোগ',icon:'📞'},
+  {id:'notice',label:'নোটিশ বোর্ড',icon:'📋'},
+];
+
+function ls(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}}
+function ss(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+
+let pg=ls('pg','home');
+let faqOpen=null;
+let sType='বই';
+let fbDone=false,spDone=false,addN=false;
+let curAlbum=null;
+let curBook=null; // {catIndex}
+let editM=null; // {sec,id}
+
+// BOOKS DATA
+let booksData=ls('booksData',[
+  {icon:'📗',label:'ইসলামিক বই',books:['কুরআনের তাফসীর','হাদিসের আলো','ইসলামী আকিদা','ফিকহুল ইবাদত','সীরাতুন নবী']},
+  {icon:'📘',label:'উপন্যাস',books:['পথের দাবী','চাঁদের আলোয়','নীল নদীর কূলে','স্বপ্নের বাগান']},
+  {icon:'📙',label:'বিজ্ঞান ও প্রযুক্তি',books:['বিজ্ঞানের জগৎ','প্রযুক্তি ও ভবিষ্যৎ','মহাকাশের রহস্য']},
+  {icon:'📕',label:'ইতিহাস',books:['বাংলাদেশের ইতিহাস','মুঘল সাম্রাজ্য','ইসলামের ইতিহাস']},
+  {icon:'📔',label:'আত্মউন্নয়নমূলক বই',books:['সাফল্যের সূত্র','মনের শক্তি','জীবন গড়ার পথ']},
+  {icon:'📒',label:'শিশুদের বই',books:['ছোটদের গল্প','রঙিন পৃথিবী','নতুন বন্ধু']},
+  {icon:'📚',label:'সাধারণ জ্ঞান',books:['বিশ্বকোষ','জানার আনন্দ','প্রশ্নোত্তর সমগ্র']},
+  {icon:'🧠',label:'শিক্ষামূলক বই',books:['গণিতের মজা','বাংলা ব্যাকরণ','ইংরেজি শিক্ষা']},
+  {icon:'🌿',label:'অনুপ্রেরণামূলক বই',books:['স্বপ্ন দেখো','এগিয়ে চলো','আলোর পথে']},
+]);
+
+let committee=ls('committee',{
+  advisors:Array.from({length:5},(_,i)=>({id:'a'+i,name:'',role:'উপদেষ্টা'})),
+  executive:[{id:'e0',name:'',role:'সভাপতি'},{id:'e1',name:'',role:'সহ-সভাপতি'},{id:'e2',name:'',role:'সাধারণ সম্পাদক'},{id:'e3',name:'',role:'সাংগঠনিক সম্পাদক'},{id:'e4',name:'',role:'অর্থ সম্পাদক'},{id:'e5',name:'',role:'প্রচার সম্পাদক'}],
+  donors:Array.from({length:9},(_,i)=>({id:'d'+i,name:'',role:'দাতা সদস্য'})),
+  special:Array.from({length:10},(_,i)=>({id:'s'+i,name:'',role:'বিশেষ সদস্য'})),
+  general:[],
+});
+
+let notices=ls('notices',[{id:1,subject:'পাঠাগার উদ্বোধন',comment:'আগামী শুক্রবার আনুষ্ঠানিক উদ্বোধন হবে।',time:'২৩ মে ২০২৬'}]);
+let albums=ls('albums',[{id:1,title:'পাঠচক্র ২০২৬',photos:[]},{id:2,title:'বই বিতরণ অনুষ্ঠান',photos:[]},{id:3,title:'শিক্ষামূলক আয়োজন',photos:[]}]);
+
+function nav(id){pg=id;faqOpen=null;fbDone=false;spDone=false;addN=false;curAlbum=null;curBook=null;editM=null;ss('pg',id);render();window.scrollTo({top:0,behavior:'smooth'});}
+
+function renderNav(){
+  const tn=document.getElementById('topnav');
+
+  tn.innerHTML=NAV.map(n=>`<button class="${pg===n.id?'active':''}" onclick="nav('${n.id}')"><span class="ni">${n.icon}</span><span class="nl">${n.label}</span></button>`).join('');
+
+}
+
+function footer(){
+  const navLinks = NAV.map(n=>`<span onclick="nav('${n.id}')" style="cursor:pointer;color:rgba(255,255,255,.85);font-size:11px;display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 6px;border-radius:8px;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.1)'" onmouseout="this.style.background='transparent'"><span style="font-size:16px">${n.icon}</span><span>${n.label}</span></span>`).join('');
+  return `<div class="divider">🌿</div><footer>
+  <div class="fq">"জ্ঞান অর্জন করুন, জীবন গড়ুন।" 📚✨</div>
+  <div class="fl2"><span>🌐 Facebook</span><span>💬 WhatsApp</span><span>📱 01739501078</span><span>📍 নন্দলালপুর, শাহজাদপুর, সিরাজগঞ্জ</span></div>
+  <div class="fc" style="margin-bottom:12px">© ২০২৬ নন্দলালপুর বায়তুল ইলম ইসলামিক পাঠাগার</div>
+  <div style="border-top:1px solid rgba(255,255,255,.15);padding-top:12px;margin-top:4px">
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px 4px">
+      ${navLinks}
+    </div>
+  </div>
+  </footer>`;
+}
+
+// HOME
+function pageHome(){
+  return `<div class="page">
+    <div class="hero"><div class="hero-pat"></div>
+      <h1>নন্দলালপুর বায়তুল ইলম ইসলামিক পাঠাগার</h1>
+      <div class="hero-sub">আমাদের পাঠাগারে স্বাগতম 📚</div>
+      <div class="hero-btns">
+        <button class="hb" onclick="nav('books')">📖 বইয়ের তালিকা</button>
+        <button class="hbg" onclick="nav('membership')">📝 সদস্য হন</button>
+        <button class="hb" onclick="nav('support')">🤝 সহযোগিতা</button>
+      </div>
+    </div>
+    <div style="padding:14px 0 0"><div class="divider">🌿</div>
+    <div class="grid">
+      ${NAV.filter(n=>n.id!=='home').map(n=>`<div class="card" onclick="nav('${n.id}')"><span class="card-icon">${n.icon}</span><div class="card-label">${n.label}</div></div>`).join('')}
+    </div></div>
+    ${footer()}
+  </div>`;
+}
+
+// ABOUT
+function pageAbout(){
+  return `<div class="page"><div class="sec-title">📚 আমাদের সম্পর্কে</div>
+  <div class="sec-box">
+    <p class="sec-text">নন্দলালপুর বায়তুল ইলম ইসলামিক পাঠাগার একটি উন্মুক্ত, শিক্ষাবান্ধব ও সামাজিক পাঠাগার। আমাদের লক্ষ্য হলো সমাজে জ্ঞানচর্চার পরিবেশ তৈরি করা, বই পড়ার অভ্যাস গড়ে তোলা এবং তরুণ সমাজকে নৈতিক ও শিক্ষামূলক কার্যক্রমে উৎসাহিত করা।</p>
+    <p class="sec-text">আমাদের পাঠাগারে ইসলামিক, সাহিত্য, ইতিহাস, বিজ্ঞান, আত্মউন্নয়নমূলক ও শিশুদের জন্য বিভিন্ন ধরনের বইয়ের সংগ্রহ রয়েছে।</p>
+    <div class="quote">"একটি ভালো বই বদলে দিতে পারে একটি মানুষের জীবন।"</div>
+  </div>${footer()}</div>`;
+}
+
+// GOALS
+function pageGoals(){
+  const g=['বই পড়ার অভ্যাস গড়ে তোলা','তরুণদের জ্ঞানচর্চায় উৎসাহিত করা','নৈতিক শিক্ষা ও সুন্দর মূল্যবোধ ছড়িয়ে দেওয়া','শিক্ষাবান্ধব পরিবেশ তৈরি করা','সকলের জন্য উন্মুক্ত পাঠাগার গড়ে তোলা'];
+  return `<div class="page"><div class="sec-title">🎯 আমাদের লক্ষ্য ও উদ্দেশ্য</div>
+  <div class="sec-box">${g.map((x,i)=>`<div class="goal-item"><div class="gnum">${i+1}</div><div>✅ ${x}</div></div>`).join('')}</div>${footer()}</div>`;
+}
+
+// CONSTITUTION
+function pageConstitution(){
+  const items=[
+    {t:'১. প্রতিষ্ঠার উদ্দেশ্য',b:'নন্দলালপুর বায়তুল ইলম ইসলামিক পাঠাগার সমাজে জ্ঞানচর্চা, বই পড়ার অভ্যাস গড়ে তোলা ও নৈতিক মূল্যবোধ প্রসারের উদ্দেশ্যে প্রতিষ্ঠিত।'},
+    {t:'২. সদস্যপদ',b:'জ্ঞানচর্চায় আগ্রহী যেকোনো বয়সের মানুষ সদস্য হতে পারবেন। সদস্যপদ গ্রহণে সঠিক তথ্য প্রদান বাধ্যতামূলক।'},
+    {t:'৩. দাতা সদস্যপদ',b:'এককালীন ২০০০ টাকা প্রদান করলে অথবা ২০০০ টাকার সমমূল্যের বই ও শিক্ষা উপকরণ প্রদান করলে আজীবন দাতা সদস্য হিসেবে পাঠাগারের সংবিধানে গণ্য করা হবে।'},
+    {t:'৪. পরিচালনা কমিটি',b:'একটি নির্বাচিত কার্যনির্বাহী পরিষদ ও উপদেষ্টা পরিষদ দ্বারা পাঠাগার পরিচালিত হবে।'},
+    {t:'৫. অর্থব্যবস্থাপনা',b:'পাঠাগারের সকল আয়-ব্যয়ের হিসাব স্বচ্ছভাবে সংরক্ষণ করা হবে এবং নিয়মিত অডিট করা হবে।'},
+    {t:'৬. শৃঙ্খলা',b:'পাঠাগারের পরিবেশ ও শৃঙ্খলা রক্ষায় সকল সদস্য দায়িত্বশীল থাকবেন।'},
+    {t:'৭. সংশোধনী',b:'সংবিধানের যেকোনো ধারা সংশোধনে সাধারণ সভায় দুই-তৃতীয়াংশ সদস্যের সম্মতি প্রয়োজন।'},
+  ];
+  return `<div class="page"><div class="sec-title">📜 সংবিধান</div>
+  ${items.map(c=>`<div class="const-box"><div class="const-t">📌 ${c.t}</div><div class="const-b">${c.b}</div></div>`).join('')}${footer()}</div>`;
+}
+
+// COMMITTEE
+function mRow(m,sec){
+  const isE=editM&&editM.sec===sec&&editM.id===m.id;
+  if(isE) return `<div class="mc"><div style="display:flex;gap:5px;align-items:center;flex-wrap:wrap"><input class="ei" id="inp_${m.id}" value="${m.name}" placeholder="নাম লিখুন"/><button class="cb" onclick="saveM('${sec}','${m.id}')">✓</button><button class="xb" onclick="cancelM()">✕</button></div></div>`;
+  return `<div class="mc"><div><div class="mn">${m.name||'<span style="color:#bbb">? নাম লিখুন</span>'}</div><div style="font-size:11px;color:#4a6b54;margin-top:2px">${m.role}</div></div><div style="display:flex;gap:4px"><button class="eb" onclick="startM('${sec}','${m.id}','${m.name.replace(/'/g,"\\'")}')">✏️</button><button class="db" onclick="delM('${sec}','${m.id}')">🗑</button></div></div>`;
+}
+function startM(sec,id,name){editM={sec,id};render();setTimeout(()=>{const i=document.getElementById('inp_'+id);if(i){i.focus();i.value=name;}},50);}
+function cancelM(){editM=null;render();}
+function saveM(sec,id){const v=document.getElementById('inp_'+id)?.value||'';committee[sec]=committee[sec].map(m=>m.id===id?{...m,name:v}:m);editM=null;ss('committee',committee);render();}
+function delM(sec,id){if(!confirm('এই সদস্যকে মুছবেন?'))return;committee[sec]=committee[sec].filter(m=>m.id!==id);ss('committee',committee);render();}
+function addM(sec,role){const n=prompt(role+'-এর নাম লিখুন:');if(!n)return;committee[sec].push({id:sec+Date.now(),name:n,role});ss('committee',committee);render();}
+
+function pageCommittee(){
+  const secs=[
+    {key:'advisors',label:'উপদেষ্টা পরিষদ',role:'উপদেষ্টা'},
+    {key:'executive',label:'কার্যনির্বাহী পরিষদ',role:'সদস্য'},
+    {key:'donors',label:'দাতা সদস্যবৃন্দ',role:'দাতা সদস্য'},
+    {key:'special',label:'বিশেষ সদস্যবৃন্দ',role:'বিশেষ সদস্য'},
+    {key:'general',label:'সাধারণ সদস্যবৃন্দ',role:'সাধারণ সদস্য'},
+  ];
+  return `<div class="page"><div class="sec-title">👥 পরিচালনা কমিটি</div>
+  <div class="sec-box">
+    <p class="sec-text">আমাদের পাঠাগারের কার্যক্রম পরিচালনার জন্য একটি নিবেদিত কমিটি কাজ করছে।</p>
+    ${secs.map(s=>`
+      <div class="comm-title">
+        <div>🌿 ${s.label}<span class="ctag">${committee[s.key].length} জন</span></div>
+        <button class="add-btn" onclick="addM('${s.key}','${s.role}')">+ যোগ করুন</button>
+      </div>
+      ${s.key==='donors'?`<div class="donor-box" style="margin-bottom:10px">
+        <div style="font-size:14px;font-weight:700;color:#0f4a27;margin-bottom:10px">💚 দাতা সদস্য হওয়ার নিয়ম</div>
+        <div class="donor-rule"><span style="color:#1a6b3a;font-size:16px;margin-top:1px">✅</span><span>এককালীন <strong>২০০০ টাকা</strong> প্রদান করলে দাতা সদস্য হওয়া যাবে।</span></div>
+        <div class="donor-rule"><span style="color:#1a6b3a;font-size:16px;margin-top:1px">✅</span><span><strong>২০০০ টাকার সমমূল্যের</strong> বই ও শিক্ষা উপকরণ দিলেও দাতা সদস্য হওয়া যাবে।</span></div>
+        <div class="donor-ben">🏆 <strong>সুবিধা:</strong> পাঠাগারের সংবিধানে <strong>আজীবন দাতা সদস্য</strong> হিসেবে গণ্য করা হবে।</div>
+      </div>`:''}
+      ${committee[s.key].length===0?'<div style="color:#bbb;font-size:12px;text-align:center;padding:8px 0">কোনো সদস্য নেই</div>':''}
+      ${committee[s.key].map(m=>mRow(m,s.key)).join('')}
+    `).join('')}
+  </div>${footer()}</div>`;
+}
+
+// BOOKS
+function openCat(i){curBook=i;render();}
+function backToBooks(){curBook=null;render();}
+function addBook(catI){
+  const name=prompt('বইয়ের নাম লিখুন:');
+  if(!name)return;
+  booksData[catI].books.push(name);
+  ss('booksData',booksData);render();
+}
+function delBook(catI,bI){
+  booksData[catI].books.splice(bI,1);
+  ss('booksData',booksData);render();
+}
+function editBook(catI,bI){
+  const old=booksData[catI].books[bI];
+  const n=prompt('বইয়ের নাম পরিবর্তন করুন:',old);
+  if(!n)return;
+  booksData[catI].books[bI]=n;
+  ss('booksData',booksData);render();
+}
+
+function pageBooks(){
+  if(curBook!==null){
+    const cat=booksData[curBook];
+    return `<div class="page">
+      <div style="padding:12px 14px 0;display:flex;align-items:center;gap:10px">
+        <button onclick="backToBooks()" style="background:#1a6b3a;color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer;font-family:'Hind Siliguri',sans-serif">← ফিরে যান</button>
+        <div style="font-size:15px;font-weight:700;color:#0f4a27">${cat.icon} ${cat.label}</div>
+      </div>
+      <div class="sec-box" style="margin-top:12px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div style="font-size:13px;color:#4a6b54">মোট বই: <strong>${cat.books.length}টি</strong></div>
+          <button onclick="addBook(${curBook})" style="background:#1a6b3a;color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:12px;cursor:pointer;font-family:'Hind Siliguri',sans-serif">+ বই যোগ করুন</button>
+        </div>
+        ${cat.books.length===0?'<div style="color:#bbb;text-align:center;padding:16px">এখনো কোনো বই যোগ করা হয়নি।</div>':''}
+        ${cat.books.map((b,i)=>`
+          <div class="book-item">
+            <span style="font-size:18px">${cat.icon}</span>
+            <span class="book-name">${b}</span>
+            <div style="display:flex;gap:5px">
+              <button onclick="editBook(${curBook},${i})" style="background:#1a6b3a;color:#fff;border:none;border-radius:6px;padding:4px 8px;font-size:11px;cursor:pointer">✏️</button>
+              <button onclick="delBook(${curBook},${i})" style="background:#e74c3c;color:#fff;border:none;border-radius:6px;padding:4px 7px;font-size:11px;cursor:pointer">🗑</button>
+            </div>
+          </div>
+        `).join('')}
+      </div>${footer()}</div>`;
+  }
+  return `<div class="page"><div class="sec-title">📖 বইয়ের ক্যাটাগরি</div>
+  <div style="padding:0 14px 14px">
+    <p style="font-size:13px;color:#4a6b54;margin-bottom:12px">ক্যাটাগরিতে চাপ দিন — বইয়ের তালিকা দেখুন, যোগ ও বিয়োগ করুন।</p>
+    ${booksData.map((c,i)=>`
+      <div class="book-cat" onclick="openCat(${i})">
+        <span style="font-size:26px">${c.icon}</span>
+        <span class="bclabel">${c.label}</span>
+        <span class="bcount">${c.books.length}টি বই</span>
+      </div>
+    `).join('')}
+  </div>${footer()}</div>`;
+}
+
+// GALLERY
+function addAlbum(){const t=prompt('নতুন অ্যালবামের নাম:');if(!t)return;albums.push({id:Date.now(),title:t,photos:[]});ss('albums',albums);render();}
+function delAlbum(id){if(!confirm('এই অ্যালবাম মুছবেন?'))return;albums=albums.filter(a=>a.id!==id);ss('albums',albums);render();}
+function openAlb(id){curAlbum=id;render();}
+function backGal(){curAlbum=null;render();}
+function delPhoto(aid,pid){const a=albums.find(x=>x.id===aid);if(a){a.photos=a.photos.filter(p=>p.id!==pid);ss('albums',albums);render();}}
+
+function pageGallery(){
+  if(curAlbum){
+    const album=albums.find(a=>a.id===curAlbum);
+    if(!album){curAlbum=null;return pageGallery();}
+    return `<div class="page">
+      <div style="padding:12px 14px 0;display:flex;align-items:center;gap:10px">
+        <button onclick="backGal()" style="background:#1a6b3a;color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:13px;cursor:pointer;font-family:'Hind Siliguri',sans-serif">← ফিরে যান</button>
+        <div style="font-size:15px;font-weight:700;color:#0f4a27">${album.title}</div>
+      </div>
+      <div class="sec-box" style="margin-top:12px">
+        <button id="addPhotoBtn" onclick="triggerPhoto()" style="background:linear-gradient(135deg,#1a6b3a,#2d8f52);color:#fff;border:none;border-radius:10px;padding:12px;font-size:13px;font-weight:700;width:100%;box-shadow:0 3px 10px rgba(26,107,58,.3);font-family:'Hind Siliguri',sans-serif;margin-bottom:12px;cursor:pointer">📷 গ্যালারি থেকে ছবি যোগ করুন</button>
+        <div class="photo-grid">
+          ${album.photos.map(p=>`<div class="photo-item"><img src="${p.src}" alt="ছবি"><button class="photo-del" onclick="delPhoto(${curAlbum},${p.id})">✕</button></div>`).join('')}
+        </div>
+        ${album.photos.length===0?'<p style="color:#bbb;font-size:13px;text-align:center;margin-top:10px">উপরের বাটন চেপে ছবি যোগ করুন।</p>':''}
+      </div>${footer()}</div>`;
+  }
+  return `<div class="page"><div class="sec-title">📸 গ্যালারি</div>
+  <div style="padding:0 14px 14px">
+    <button class="sbtn" style="margin-bottom:12px" onclick="addAlbum()">+ নতুন অ্যালবাম</button>
+    <div class="gallery-grid">
+      ${albums.map(a=>`
+        <div class="g-album" onclick="openAlb(${a.id})">
+          <button class="g-del" onclick="event.stopPropagation();delAlbum(${a.id})">✕</button>
+          <div class="g-thumb">${a.photos.length>0?`<img src="${a.photos[0].src}" alt="">`:'🖼️'}</div>
+          <div class="g-title">${a.title}</div>
+          <div class="g-count">${a.photos.length} টি ছবি</div>
+        </div>
+      `).join('')}
+    </div>
+  </div>${footer()}</div>`;
+}
+
+function triggerPhoto(){
+  const input=document.createElement('input');
+  input.type='file';
+  input.accept='image/*';
+  input.multiple=true;
+  input.style.display='none';
+  document.body.appendChild(input);
+  input.onchange=function(){
+    const files=Array.from(this.files);
+    let loaded=0;
+    files.forEach(file=>{
+      const r=new FileReader();
+      r.onload=ev=>{
+        const a=albums.find(x=>x.id===curAlbum);
+        if(a){
+          a.photos.push({id:Date.now()+Math.random(),src:ev.target.result});
+          loaded++;
+          if(loaded===files.length){ss('albums',albums);render();}
+        }
+      };
+      r.readAsDataURL(file);
+    });
+    document.body.removeChild(input);
+  };
+  input.click();
+}
+
+function addPhotos(e,aid){
+  const files=Array.from(e.target.files);
+  files.forEach(file=>{
+    const r=new FileReader();
+    r.onload=ev=>{
+      const a=albums.find(x=>x.id===aid);
+      if(a){a.photos.push({id:Date.now()+Math.random(),src:ev.target.result});ss('albums',albums);render();}
+    };
+    r.readAsDataURL(file);
+  });
+}
+
+// FAQ
+const FAQS=[
+  {q:'কিভাবে সদস্য হব?',a:'নিবন্ধন ফর্ম পূরণ করে সহজেই সদস্য হওয়া যাবে।'},
+  {q:'সদস্য হতে কি কোনো বয়সসীমা আছে?',a:'না, জ্ঞানচর্চায় আগ্রহী যেকোনো বয়সের মানুষ সদস্য হতে পারবেন।'},
+  {q:'পাঠাগারে কী ধরনের বই পাওয়া যায়?',a:'ইসলামিক, উপন্যাস, বিজ্ঞান, ইতিহাস, শিশুদের বই, আত্মউন্নয়নমূলক ও শিক্ষামূলক বই পাওয়া যায়।'},
+  {q:'বই কতদিনের জন্য নেওয়া যাবে?',a:'নির্ধারিত সময় অনুযায়ী বই সংগ্রহ ও ফেরত দেওয়া যাবে।'},
+  {q:'পাঠাগার কি সবার জন্য উন্মুক্ত?',a:'হ্যাঁ, পাঠাগার সকলের জন্য উন্মুক্ত।'},
+  {q:'বই দান করা যাবে?',a:'অবশ্যই। আপনি বই অথবা শিক্ষা উপকরণ দিয়ে সহযোগিতা করতে পারেন।'},
+  {q:'কিভাবে যোগাযোগ করব?',a:'Facebook Page, WhatsApp অথবা মোবাইল নম্বরের মাধ্যমে যোগাযোগ করতে পারবেন।'},
+  {q:'পাঠাগারে কি শিক্ষামূলক কার্যক্রম হয়?',a:'হ্যাঁ, পাঠচক্র, আলোচনা সভা ও বিভিন্ন কার্যক্রম পরিচালনা করা হয়।'},
+  {q:'নতুন বইয়ের খবর কিভাবে জানব?',a:'আমাদের Facebook Page ও Website এ নিয়মিত আপডেট দেওয়া হবে।'},
+  {q:'পাঠাগারের পরিবেশ কেমন?',a:'শান্ত, পরিচ্ছন্ন ও শিক্ষাবান্ধব পরিবেশ বজায় রাখার চেষ্টা করা হয়।'},
+];
+function tFaq(i){faqOpen=faqOpen===i?null:i;render();}
+function pageFAQ(){
+  return `<div class="page"><div class="sec-title">❓ প্রশ্নোত্তর পর্ব</div>
+  <div style="padding:0 14px 14px">
+    ${FAQS.map((f,i)=>`<div class="faq-item"><div class="faq-q" onclick="tFaq(${i})"><span>❓ ${f.q}</span><span style="font-size:14px;color:#1a6b3a">${faqOpen===i?'▲':'▼'}</span></div><div class="faq-a ${faqOpen===i?'open':''}">👉 ${f.a}</div></div>`).join('')}
+  </div>${footer()}</div>`;
+}
+
+// MEMBERSHIP
+function pageMembership(){
+  const rules=['পাঠাগারের পরিবেশ সুন্দর রাখা।','বই যত্নসহকারে ব্যবহার করা।','নির্ধারিত সময় অনুযায়ী বই ফেরত দেওয়া।','সকল সদস্যের সাথে সুন্দর আচরণ করা।','জ্ঞানচর্চা ও শিক্ষামূলক কার্যক্রমে অংশগ্রহণ করা।'];
+  return `<div class="page"><div class="sec-title">📝 সদস্য নিবন্ধন</div>
+  <div class="sec-box">
+    <p class="sec-text">আপনিও হতে পারেন আমাদের পাঠাগারের একজন সদস্য।</p>
+    <div style="font-size:13px;font-weight:700;color:#0f4a27;margin-bottom:10px">📌 সদস্য হওয়ার নিয়ম</div>
+    ${rules.map(r=>`<div style="display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid #c3e6cb;font-size:13px;color:#4a6b54;line-height:1.6"><span style="color:#1a6b3a;font-size:15px;margin-top:1px">✅</span><span>${r}</span></div>`).join('')}
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfHTdyT5FpE_YEaXJkB196BminJn8A_vYbFk3qCnl16rZIwxw/viewform" target="_blank">
+      <button class="sbtn" style="margin-top:16px;background:linear-gradient(135deg,#27ae60,#1a6b3a)">🟩 সদস্য ফর্ম পূরণ করুন</button>
+    </a>
+  </div>${footer()}</div>`;
+}
+
+// CANCEL
+function pageCancel(){
+  const r=['পাঠাগারের বই হারিয়ে ফেললে বা নষ্ট করলে এবং ক্ষতিপূরণ না দিলে।','নির্ধারিত সময়ের মধ্যে বারবার বই ফেরত না দিলে।','পাঠাগারের পরিবেশ বিশৃঙ্খল করলে বা অন্য সদস্যদের সাথে অসম্মানজনক আচরণ করলে।','পাঠাগারের নিয়ম-কানুন বারবার ভঙ্গ করলে।','কমিটির সিদ্ধান্তের বিরুদ্ধে অসহযোগিতামূলক আচরণ করলে।','মিথ্যা তথ্য দিয়ে সদস্যপদ গ্রহণ করলে।'];
+  return `<div class="page"><div class="sec-title">🚫 সদস্যপদ বাতিলের শর্ত</div>
+  <div class="sec-box">
+    <p class="sec-text">নিম্নলিখিত যেকোনো কারণে পাঠাগার কর্তৃপক্ষ সদস্যপদ বাতিল করার অধিকার রাখে।</p>
+    ${r.map((x,i)=>`<div class="badge"><div class="bnum">${i+1}</div><div>${x}</div></div>`).join('')}
+  </div>${footer()}</div>`;
+}
+
+// FEEDBACK
+function subFB(){
+  const name=document.getElementById('fb_name')?.value||'';
+  const msg=document.getElementById('fb_msg')?.value||'';
+  if(!msg){alert('মতামত লিখুন');return;}
+  fetch('https://formspree.io/f/xqejdyjb',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({_subject:'নতুন মতামত - পাঠাগার',নাম:name,মতামত:msg})
+  }).then(r=>{if(r.ok){fbDone=true;render();}else{alert('সমস্যা হয়েছে, আবার চেষ্টা করুন');}}).catch(()=>alert('ইন্টারনেট সংযোগ চেক করুন'));
+}
+function pageFeedback(){
+  if(fbDone) return `<div class="page"><div class="sec-title">🌟 মতামত</div><div class="sec-box"><div class="succ"><div style="font-size:40px;margin-bottom:10px">✅</div><div style="font-size:14px;font-weight:700;color:#1a6b3a">আপনার মতামত গ্রহণ করা হয়েছে!</div><button class="sbtn" style="width:auto;padding:10px 20px;margin-top:14px" onclick="fbDone=false;render()">আবার দিন</button></div></div>${footer()}</div>`;
+  return `<div class="page"><div class="sec-title">🌟 মতামত ও পরামর্শ</div>
+  <div class="sec-box">
+    <p class="sec-text">আপনার মূল্যবান মতামত আমাদের উন্নতিতে সাহায্য করবে।</p>
+    <div class="fg"><label class="fl">আপনার নাম (ঐচ্ছিক)</label><input id="fb_name" class="fi" placeholder="আপনার নাম..."/></div>
+    <div class="fg"><label class="fl">মতামত বা পরামর্শ *</label><textarea id="fb_msg" class="fi" placeholder="আপনার মূল্যবান মতামত লিখুন..."></textarea></div>
+    <button class="sbtn" onclick="subFB()">🟩 মতামত দিন</button>
+  </div>${footer()}</div>`;
+}
+
+// SUPPORT
+function subSP(){
+  const n=document.getElementById('sp_n')?.value||'';
+  const p=document.getElementById('sp_p')?.value||'';
+  const e=document.getElementById('sp_e')?.value||'';
+  const am=document.getElementById('sp_am')?.value||'';
+  const msg=document.getElementById('sp_msg')?.value||'';
+  const a=document.getElementById('sp_a')?.checked;
+  if(!n||!p){alert('নাম ও ফোন নম্বর দিন');return;}
+  if(!a){alert('সম্মতি দিন');return;}
+  fetch('https://formspree.io/f/xqejdyjb',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({_subject:'নতুন সহযোগিতা অনুরোধ - পাঠাগার',নাম:n,ফোন:p,ইমেইল:e,ধরন:sType,পরিমাণ:am,বার্তা:msg})
+  }).then(r=>{if(r.ok){spDone=true;render();}else{alert('সমস্যা হয়েছে, আবার চেষ্টা করুন');}}).catch(()=>alert('ইন্টারনেট সংযোগ চেক করুন'));
+}
+function pageSupport(){
+  if(spDone) return `<div class="page"><div class="sec-title">🤝 সহযোগিতা</div><div class="sec-box"><div class="succ"><div style="font-size:40px;margin-bottom:10px">🤝</div><div style="font-size:14px;font-weight:700;color:#1a6b3a">আপনার সহযোগিতার অনুরোধ গ্রহণ হয়েছে!</div><button class="sbtn" style="width:auto;padding:10px 20px;margin-top:14px" onclick="spDone=false;render()">আবার করুন</button></div></div>${footer()}</div>`;
+  const types=[['📗 বই','বই'],['📏 শিক্ষা উপকরণ','শিক্ষা উপকরণ'],['💵 আর্থিক সাহায্য','আর্থিক সাহায্য']];
+  return `<div class="page"><div class="sec-title">🤝 সহযোগিতা / সহায়তায়</div>
+  <div class="sec-box">
+    <div class="quote" style="margin-bottom:14px">💚 "একটি বই দান হতে পারে কারো জ্ঞান অর্জনের শুরু।"</div>
+    <div class="fg"><label class="fl">নাম *</label><input id="sp_n" class="fi" placeholder="আপনার নাম"/></div>
+    <div class="fg"><label class="fl">ফোন নম্বর *</label><input id="sp_p" class="fi" placeholder="ফোন নম্বর"/></div>
+    <div class="fg"><label class="fl">ইমেইল (ঐচ্ছিক)</label><input id="sp_e" class="fi" placeholder="ইমেইল"/></div>
+    <div class="fg"><label class="fl">আপনি কী দিতে চান? *</label>
+      ${types.map(([l,v])=>`<label class="rl" style="border-color:${sType===v?'#1a6b3a':'#c3e6cb'}"><input type="radio" name="st" ${sType===v?'checked':''} onchange="sType='${v}';render()"> ${l}</label>`).join('')}
+    </div>
+    <div class="fg"><label class="fl">পরিমাণ (প্রযোজ্য হলে)</label><input id="sp_am" class="fi" placeholder="যদি প্রযোজ্য"/></div>
+    <div class="fg"><label class="fl">বার্তা (ঐচ্ছিক)</label><textarea id="sp_msg" class="fi" placeholder="আপনার বার্তা..."></textarea></div>
+    <label style="display:flex;align-items:flex-start;gap:9px;font-size:12px;color:#4a6b54;margin-bottom:12px;cursor:pointer"><input type="checkbox" id="sp_a" style="accent-color:#1a6b3a;margin-top:2px"> আমি জানি আমার তথ্য শুধুমাত্র পাঠাগারের জন্য ব্যবহার করা হবে।</label>
+    <button class="sbtn" onclick="subSP()">জমা দিন</button>
+  </div>${footer()}</div>`;
+}
+
+// CONTACT
+function pageContact(){
+  const rows=[
+    {icon:'📍',label:'ঠিকানা',value:'নন্দলালপুর, শাহজাদপুর, সিরাজগঞ্জ',link:'https://maps.google.com/?q=নন্দলালপুর,শাহজাদপুর,সিরাজগঞ্জ'},
+    {icon:'📱',label:'মোবাইল (চাপ দিয়ে কল করুন)',value:'01739501078',link:'tel:01739501078'},
+    {icon:'📧',label:'Email (চাপ দিয়ে মেইল করুন)',value:'mdalaminhossain1078@gmail.com',link:'mailto:mdalaminhossain1078@gmail.com'},
+    {icon:'🌐',label:'Facebook Page (চাপ দিয়ে যান)',value:'facebook.com/share/18apfbP7Hb/',link:'https://facebook.com/share/18apfbP7Hb/'},
+    {icon:'💬',label:'WhatsApp (চাপ দিয়ে মেসেজ করুন)',value:'01739501078',link:'https://wa.me/8801739501078'},
+    {icon:'🗺️',label:'Google Map (চাপ দিয়ে দেখুন)',value:'Google Maps-এ খুঁজুন',link:'https://maps.google.com/?q=নন্দলালপুর,শাহজাদপুর,সিরাজগঞ্জ'},
+  ];
+  return `<div class="page"><div class="sec-title">📞 যোগাযোগ</div>
+  <div class="sec-box">
+    ${rows.map(r=>`
+      <a href="${r.link}" target="_blank" style="text-decoration:none;display:block">
+        <div class="cr" style="cursor:pointer;border-radius:10px;padding:11px 8px;margin-bottom:2px;transition:background .15s;active-background:#f0faf4" onclick="this.parentElement.style.background='#f0faf4';setTimeout(()=>this.parentElement.style.background='',300)">
+          <div class="ci">${r.icon}</div>
+          <div style="flex:1">
+            <div style="font-size:11px;color:#4a6b54;margin-bottom:2px">${r.label}</div>
+            <div style="font-size:13px;font-weight:600;color:#1a6b3a">${r.value}</div>
+          </div>
+          <div style="font-size:16px;color:#c3e6cb">›</div>
+        </div>
+      </a>
+    `).join('')}
+  </div>${footer()}</div>`;
+}
+
+// NOTICE
+let nf={subject:'',comment:'',time:''};
+function saveN(){const s=document.getElementById('nt_s')?.value||'';const c=document.getElementById('nt_c')?.value||'';const t=document.getElementById('nt_t')?.value||'';if(!s||!c){alert('বিষয় ও মন্তব্য দিন');return;}notices.unshift({id:Date.now(),subject:s,comment:c,time:t});ss('notices',notices);addN=false;render();}
+function delN(id){if(!confirm('এই নোটিশ মুছবেন?'))return;notices=notices.filter(n=>n.id!==id);ss('notices',notices);render();}
+function pageNotice(){
+  return `<div class="page"><div class="sec-title">📋 নোটিশ বোর্ড</div>
+  <div style="padding:0 14px 14px">
+    <button class="sbtn" style="margin-bottom:12px" onclick="addN=true;render()">+ নতুন নোটিশ যোগ করুন</button>
+    ${addN?`<div class="sec-box" style="margin:0 0 12px">
+      <div class="fg"><label class="fl">বিষয় *</label><input id="nt_s" class="fi" placeholder="বিষয় লিখুন..."/></div>
+      <div class="fg"><label class="fl">মন্তব্য *</label><textarea id="nt_c" class="fi" placeholder="মন্তব্য লিখুন..."></textarea></div>
+      <div class="fg"><label class="fl">সময়</label><input id="nt_t" class="fi" placeholder="যেমন: ২৪ মে ২০২৬"/></div>
+      <div style="display:flex;gap:9px">
+        <button class="sbtn" style="flex:1" onclick="saveN()">যোগ করুন</button>
+        <button class="sbtn" style="flex:1;background:#e74c3c" onclick="addN=false;render()">বাতিল</button>
+      </div>
+    </div>`:''}
+    ${notices.length===0?'<div style="color:#bbb;text-align:center;padding:18px 0">কোনো নোটিশ নেই।</div>':''}
+    ${notices.map(n=>`<div class="nc">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div style="font-size:13px;font-weight:700;color:#0f4a27;margin-bottom:4px">📌 ${n.subject}</div>
+        <button style="background:#e74c3c;color:#fff;border:none;border-radius:6px;padding:4px 7px;font-size:11px;cursor:pointer" onclick="delN(${n.id})">🗑</button>
+      </div>
+      <div style="font-size:12px;color:#4a6b54;line-height:1.6">${n.comment}</div>
+      ${n.time?`<div style="font-size:11px;color:#aaa;margin-top:5px">⏰ ${n.time}</div>`:''}
+    </div>`).join('')}
+  </div>${footer()}</div>`;
+}
+
+const PAGES={home:pageHome,about:pageAbout,goals:pageGoals,constitution:pageConstitution,committee:pageCommittee,books:pageBooks,gallery:pageGallery,faq:pageFAQ,membership:pageMembership,cancel:pageCancel,feedback:pageFeedback,support:pageSupport,contact:pageContact,notice:pageNotice};
+
+function render(){
+  renderNav();
+  document.getElementById('app').innerHTML=(PAGES[pg]||pageHome)();
+  if(editM){setTimeout(()=>{const i=document.getElementById('inp_'+editM.id);if(i)i.focus();},30);}
+}
+
+render();
+</script>
+</body>
+</html>
